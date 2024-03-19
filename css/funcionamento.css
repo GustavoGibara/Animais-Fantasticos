@@ -1,0 +1,14 @@
+.js .funcionamento::after {
+  display: inline-block;
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #E54;
+  border: 2px solid #000;
+  margin-left: 8px;
+}
+
+.js .funcionamento.aberto::after {
+  background-color:#3F4;
+}
