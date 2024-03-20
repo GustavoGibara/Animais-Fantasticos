@@ -1,23 +1,30 @@
-export default  function initTabMenu(){  
-  const tabMenu = document.querySelectorAll('[data-tab="menu"] li')
-  const tabContent = document.querySelectorAll('[data-tab="content"] section')
-  
-  tabContent[0].classList.add('ativo')
+export default  class TabMenu{  
+  constructor(tabMenu, tabContent) {
+    this.tabMenu = document.querySelectorAll(tabMenu)
+    this.tabContent = document.querySelectorAll(tabContent)
+    this.activeClass = 'ativo'
+  }
 
-  function TrocarTexto(index) {
-    tabContent.forEach((item) => {
-      item.classList.remove('ativo', tabContent[index].dataset.anime)
+  activeTab(index) {
+    this.tabContent.forEach((item) => {
+      item.classList.remove(this.activeClass, this.tabContent[index].dataset.anime)
     }) 
     
-    tabContent[index].classList.add('ativo', tabContent[index].dataset.anime)
+    this.tabContent[index].classList.add(this.activeClass, this.tabContent[index].dataset.anime)
   }
 
-  if (tabMenu && tabContent) {
-    
-    tabMenu.forEach((item, index) => {
-      item.addEventListener('click', () => {
-        TrocarTexto(index)
-      })
+  addTabNavEvent() {
+    this.tabMenu.forEach((item, index) => {
+      item.addEventListener('click', () => {this.trocarTexto(index)})
     })
   }
+
+  init() {
+    if (this.tabMenu.length && this.tabContent.length) {
+      this.activeTab(0)
+      this.activeTabNavEvent()
+    }
+    return this
+  }
+
 }
