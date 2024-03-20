@@ -1,7 +1,7 @@
 import ScrollSuave from './modules/scroll-suave.js';
 import Accordion from './modules/accordion.js';
+import TabMenu from './modules/tab-menu.js'
 import initAparecerItens from './modules/anima-scroll.js';
-import initTabMenu from './modules/tab-menu.js'
 import initModal from './modules/modal.js';
 import initToolTip from './modules/tooltip.js';
 import initDropDown from './modules/dropdown-menu.js';
@@ -16,6 +16,9 @@ scrollSuave.init()
 const accordion = new Accordion('[data-anime="accordion"] dt')
 accordion.init()
 
+const tabMenu = new TabMenu('[data-tab="menu"] li', '[data-tab="content"] section')
+tabMenu.init()
+
 initBitcoin()
 initFetchAnimais()
 initFuncionamento()
@@ -24,4 +27,3 @@ initDropDown()
 initToolTip()
 initModal()
 initAparecerItens()
-initTabMenu()
