@@ -1,4 +1,4 @@
-import cliqueFora from "./cliquefora.js"
+import outsideclick from "./outsideclick.js"
 
 export default function initDropDown() {
   
@@ -8,8 +8,8 @@ const userEvents = ['touchstart', 'click']
 function ativarDrop(event) {
   event.preventDefault()
   this.classList.toggle('active')
-  cliqueFora.element = this
-  cliqueFora(this, userEvents, () => {
+  outsideclick.element = this
+  outsideclick(this, userEvents, () => {
     this.classList.remove('active')
   })
 }

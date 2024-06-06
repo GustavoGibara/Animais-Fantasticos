@@ -1,4 +1,4 @@
-import cliqueFora from "./cliquefora.js";
+import outsideClick from "./outsideclick.js";
 
 export default function initMenuMobile() {
 
@@ -10,7 +10,7 @@ const menu = document.querySelector('[data-menu="list"]')
 function ativarMenu() {
   menu.classList.add('active')
   botaoMenu.classList.add('active')
-  cliqueFora(menu,['touchstart', 'click'],  () => {
+  outsideClick(menu,['touchstart', 'click'],  () => {
     menu.classList.remove('active')
     botaoMenu.classList.remove('active')
   })
